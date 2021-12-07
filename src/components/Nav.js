@@ -15,7 +15,7 @@ const Nav = ({ setLibraryStatus, libraryStatus, switchSong, tip}) => {
         className={libraryStatus ? "library-active" : ""}
         onClick={openLibraryHandler}
       >
-        {tip}
+        切换到{tip}
         <FontAwesomeIcon icon={faMusic}></FontAwesomeIcon>
       </button>
     </nav>
