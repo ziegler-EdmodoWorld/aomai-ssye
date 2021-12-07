@@ -7,11 +7,12 @@ function chillHop() {
     {
       name: "萱草花 - 演唱",
       cover: pic,
-      artist: "声声乐耳 - 聂老师",
+      artist: "声声乐耳",
       audio: m1,
       color: ["#205950", "#2ab3bf"],
       id: uuidv4(),
       active: true,
+      tip: "演唱"
     },
     {
       name: "萱草花 - 伴奏",
@@ -21,6 +22,7 @@ function chillHop() {
       color: ["#205950", "#2ab3bf"],
       id: uuidv4(),
       active: false,
+      tip: "伴奏"
     },
   ];
 }

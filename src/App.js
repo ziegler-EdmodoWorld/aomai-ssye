@@ -40,15 +40,19 @@ function App() {
       volume: e.target.volume,
     });
   };
-  const songEndHandler = async () => {
+
+  const nextSong = () => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
-    await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    return songs[(currentIndex + 1) % songs.length]
+  }
+  const songEndHandler = async () => {
+    await setCurrentSong(nextSong());
     playAudio(isPlaying, audioRef);
     return;
   };
   return (
     <div className={`App ${libraryStatus ? "library-active" : ""}`}>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} switchSong={songEndHandler} tip={nextSong().tip} />
       <Song isPlaying={isPlaying} currentSong={currentSong} />
       <Player
         audioRef={audioRef}
